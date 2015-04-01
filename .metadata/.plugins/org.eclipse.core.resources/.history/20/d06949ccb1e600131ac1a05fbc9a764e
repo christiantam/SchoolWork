@@ -1,0 +1,28 @@
+
+public class Three {
+	public static void main (String [] args){
+		System.out.println("Largest prime factor: " + largestPrime(13195));
+	}
+	
+	public static int largestPrime (int num){
+		int largest = 1;
+		for(int i = 2; i <= num/2; i++){
+			//if == 0 then it is a factor
+			if(num % i == 0){
+				if(isPrime(i)){
+					largest = i;
+				}
+			}
+		}
+		return largest;
+	}
+	
+	public static boolean isPrime(int num){
+		for(int i = 2; i < num/2; i++){
+			if(num % i == 0){
+				return false;
+			}
+		}
+		return true;
+	}
+}

@@ -1,0 +1,55 @@
+import java.util.LinkedList;
+
+
+public class p014 {
+	public static void main (String [] args){
+	/*	long longest = 1; 
+		long temp;
+		for(int i = 1; i < 1000000; i++){
+			temp = Collatz(i);
+			if(temp > longest){
+				longest = temp;
+				System.out.println("i: " + i);
+			}
+		}
+		System.out.println("Longest: " + longest);*/
+		 long begin = System.currentTimeMillis();
+	        LinkedList<Long> list = new LinkedList<Long>();
+	        long length = 0;
+	        int res = 0;
+	        for(int j = 10; j < 1000000; j++){
+	            long i = j;
+	            while (i != 1){
+	                if (i % 2 == 0){
+	                    i /= 2;
+	                    list.add(i);
+	                }
+	                else{
+	                    i = (3 * i) + 1;
+	                    list.add(i);
+	                }
+	            }
+	            if(list.size() > length){
+	                length = list.size();
+	                res = j;
+	            }
+	            list.clear();
+	        }
+	        long end = System.currentTimeMillis();
+	        System.out.println(res+" with chain size: "+ length);
+	        System.out.println(end-begin + "ms");
+	}
+	
+	public static long Collatz (long input){
+		long num = 0;
+		while(input != 1){
+			//even
+			if(input % 2 == 0)
+				input /= 2;
+			else
+				input = input*3 + 1;
+			num++;
+		}
+		return num;
+	}
+}

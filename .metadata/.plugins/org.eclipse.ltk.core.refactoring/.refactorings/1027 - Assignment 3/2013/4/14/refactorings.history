@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 4 elements to &apos;1027 - Assignment 4/src/(default package)&apos;&#x0D;&#x0A;- Original project: &apos;1027 - Assignment 3&apos;&#x0D;&#x0A;- Destination element: &apos;1027 - Assignment 4/src/(default package)&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     QueueADT.java&#x0D;&#x0A;     EmptyCollectionException.java&#x0D;&#x0A;     LinearNode.java&#x0D;&#x0A;     LinkedQueue.java" description="Copy compilation units" destination="=1027 - Assignment 4/src&lt;" element1="/src&lt;{QueueADT.java" element2="/src&lt;{EmptyCollectionException.java" element3="/src&lt;{LinearNode.java" element4="/src&lt;{LinkedQueue.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1365275993811" units="4" version="1.0"/>
+</session>

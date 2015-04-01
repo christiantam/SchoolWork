@@ -1,0 +1,19 @@
+
+public class testing {
+	public static void main (String [] args){
+		Sudoku s = new Sudoku();
+		String [] lines = new String [9];
+		lines[0] = "123456789";
+		lines[1] = "123456789";
+		lines[2] = "123456789";
+		lines[3] = "123456789";
+		lines[4] = "123456789";
+		lines[5] = "123456789";
+		lines[6] = "123456789";
+		lines[7] = "123456789";
+		lines[8] = "123456789";
+		lines[9] = "123456789";
+		s.fill(lines);
+		s.show();
+	}
+}

@@ -1,0 +1,8 @@
+import java.math.*;
+
+public class p016 {
+	public static void main (String [] args){
+		long power = (long)Math.pow(2,1000); 
+		System.out.println(power);
+	}
+}

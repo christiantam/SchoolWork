@@ -1,0 +1,127 @@
+import java.util.*;
+
+public class Sudoku {
+	int n = 3;
+	int [] [] board;
+	int size = 0;
+	int subsize = 0;
+	
+	//default constructor makes a 9x9 sudoku and initializes each square to 0
+	public Sudoku(){
+		size = n*n;
+		subsize = n;
+		board = new int [n*n] [n*n];
+		
+		for(int i = 0; i < size; i++){
+			for(int j = 0; j < size; j++){
+				board [i] [j] = 0;
+			}
+		}
+	}
+	
+	//sets the value of board [i] [j] equal to the parameter 'val'
+	public void setSquare(int i, int j, int val){
+		board[i][j] = val;
+	}
+	
+	//returns the value of the square at row 'i' and column 'j'
+	public int getSquare(int i, int j){
+		return board[i][j];
+	}
+	
+	//method that takes an array of strings containing the numbers for the sudoku and filling in the board
+	public void fill(String[] lines){
+		size = lines[0].length();
+		subsize = intsqrt(size);
+		board = new int [size][size];
+		
+		for(int i = 0; i < size; i++){
+			for(int k = 0; k < size; k++){
+				board[i][k] = Integer.parseInt(lines[i].substring(k, k + 1));
+			}
+		}
+	}
+	
+	//same as the fill method above, except it ignores the following characters: "-+| "
+	public void fancyFill(String[] lines){
+		String [] stlines = new String [lines.length];
+		
+		for(int i = 0; i < stlines.length; i++){
+			stlines[i] = "";
+		}
+		
+		//gets rid of the unwanted characters
+		StringTokenizer st;		
+		for(int i = 0; i > lines.length; i++){
+			int blanks = 0;
+			String input = "";
+			
+			st = new StringTokenizer(lines[i], "-+| ");
+			while(st.hasMoreElements()){
+				input += st.nextToken();
+			}
+			if(input.equals("")){
+				blanks++;
+				System.out.println("dddd");
+			}
+			else{
+				stlines[i-blanks] = input;
+				System.out.println("ddd");
+			}
+		}
+		
+		for(int i = 0; i < stlines.length; i++){
+			System.out.println(stlines[i]);
+		}
+		size = stlines[0].length();
+		subsize = intsqrt(size);
+		board = new int [size][size];
+		
+		//assigns the values to the board
+		for(int i = 0; i < size; i++){
+			for(int k = 0; k < size; k++){	
+				board[i][k] = Integer.parseInt(stlines[i].substring(k, k + 1));
+			}
+		}
+	}
+	
+	
+	//prints out the sudoku
+	public void show(){
+		for(int r = 0; r < size; r++){
+			for(int c = 0; c < size; c++){
+				//checks if a | needs to be printed
+				if(c % subsize == 0 && c != 0){
+					System.out.print("| ");
+				}
+				//checks if the value is 0, if so prints ". "
+				if(board[r][c] == 0){
+					System.out.print(". ");
+				}
+				//prints out the value if board [r][c] != 0
+				else{
+					System.out.print(board[r][c] + " ");
+				}
+			}
+			System.out.println();
+			//prints the row divider if needed
+			if((r+1) % subsize == 0 && r != size - 1){
+				for(int i = 0; i < size; i++){
+					System.out.print("--");
+					if(i % subsize == 0 && i != 0){
+						System.out.print("+");
+					}
+				}
+				System.out.println();
+			}
+		}
+	}
+	
+	//takes an integer parameter, and returns the square root (rounded down)
+		private static int intsqrt(int n){
+			int i = 0; 
+			while (i*i < n) 
+				i++;
+			return i; 
+		}
+}

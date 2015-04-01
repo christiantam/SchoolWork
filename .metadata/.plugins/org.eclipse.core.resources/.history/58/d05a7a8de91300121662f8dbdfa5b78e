@@ -1,0 +1,56 @@
+public class Tableau {
+	private int _subsize;
+	private int _size;
+	private int[][] _tableau;
+	
+	//default constructor which makes a sudoku of size 9
+	private Tableau() {
+		_size    = 9;
+		_subsize = intsqrt(9);
+		_tableau = new int[9][9];
+	}
+	
+	//constructor for one variable which dictates the subsize of the tableau
+	private Tableau(int n) {
+		_size    = n*n;
+		_subsize = n;
+		_tableau = new int[n*n][n*n];
+	}
+	
+	//takes an integer parameter, and returns the square root (rounded down)
+	private static int intsqrt(int n){
+		int i = 0; 
+		while (i*i < n) 
+			i++;
+		return i; 
+	}
+	
+	//prints the tableau
+	//prints blank spaces for empty slots in the tableau
+	public void print() {
+		for (int i = 0; i < _size; i++) {
+			if (i > 0 && i % _subsize == 0) 
+				System.out.println();
+			for (int j = 0; j < _size; j++) {
+				if (j > 0 && j % _subsize == 0) System.out.print(" ");
+					System.out.print(_tableau[i][j]);
+			}
+		System.out.println();
+		}
+	}
+	
+	//returns the size variable
+	public int size(){
+		return _size;
+	}
+	
+	//returns the subsize variable
+	public int subsize(){
+		return _subsize;
+	}
+	
+	//returns the value at row r, column c
+	public int getValue(int r, int c){
+		return _tableau[r][c]; 
+	}
+}

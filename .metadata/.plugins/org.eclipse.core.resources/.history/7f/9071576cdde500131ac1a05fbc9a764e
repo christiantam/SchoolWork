@@ -1,0 +1,16 @@
+
+public class Two {
+	public static void main (String [] args){
+		int i = 0, j = 1, k = 1, sum = 0;
+		
+		while(j < 4000000){
+			if (k % 2 == 0){
+				sum += k;
+			}
+			i = j;
+			j = k;
+			k = i + j;
+		}
+	}
+	
+}

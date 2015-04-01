@@ -1,0 +1,20 @@
+import java.math.BigInteger;
+
+
+public class p020 {
+	public static void main (String [] args){
+		BigInteger num = BigInteger.valueOf(1);
+		for(int i = 2; i <= 100; i++){
+			num = num.multiply(BigInteger.valueOf(i));
+		}
+		System.out.println(num);
+	}
+	
+	public static long factorial (int num){
+		long ans = 1;
+		for(int i = num; i > 1; i--){
+			ans *= i;
+		}
+		return ans;
+	}
+}

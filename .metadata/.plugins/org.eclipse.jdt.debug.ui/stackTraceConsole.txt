@@ -1,0 +1,2 @@
+Paste stack traces into this console and follow hyperlinks to source code.
+mvn eclipse:configure-workspace -Declipse.workspace=<path-to-eclipse-workspace>

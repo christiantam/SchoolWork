@@ -1,0 +1,23 @@
+
+public class p012 {
+	public static void main (String [] args){
+		long triangle = 1;
+		for(long i = 2; ; i++){
+			triangle += i;
+			if(numFactors(triangle) > 500){
+				System.out.println("Triangle: " + triangle);
+				break;
+			}
+		}
+		System.out.println("Triangle: " + triangle);
+	}
+	
+	public static int numFactors(long input){
+		int fact = 0;
+		for(int i = 1; i <= input; i++){
+			if(input % i == 0)
+				fact++;
+		}
+		return fact;
+	}
+}

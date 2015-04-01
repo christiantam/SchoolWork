@@ -1,0 +1,50 @@
+public class Sudoku {
+	int n = 3;
+	int [] [] board;
+	int size = 0;
+	int subsize = 0;
+	
+	//default constructor makes a 9x9 sudoku and initializes each square to 0
+	public Sudoku(){
+		size = n*n;
+		subsize = n;
+		board = new int [n*n] [n*n];
+		
+		for(int i = 0; i < size; i++){
+			for(int j = 0; j < size; j++){
+				board [i] [j] = 3;
+			}
+		}
+	}
+	
+	//sets the value of board [i] [j] equal to the parameter 'val'
+	public void setSquare(int i, int j, int val){
+		board[i][j] = val;
+	}
+	
+	//returns the value of the square at row 'i' and column 'j'
+	public int getSquare(int i, int j){
+		return board[i][j];
+	}
+	
+	//prints out the sudoku
+	public void show(){
+		for(int r = 0; r < size; r++){
+			for(int c = 0; c < size; c++){
+				if(c % subsize == 0 && c != 0){
+					System.out.print("| ");
+				}
+				if(board[r][c] == 0){
+					System.out.print(". ");
+				}
+				else{
+					System.out.print(board[r][c] + " ");
+				}
+			}
+			System.out.println();
+			if((r) % subsize == 0){
+				System.out.println("------+-------+------");
+			}
+		}
+	}
+}

@@ -1,0 +1,29 @@
+public class SquareSlice extends Slice {
+	private Tableau _t; 
+	private int _row0, _col0; 
+	
+	//constructor with a tableau parameter and an integer parameter which indicates which square is being given
+	//the square format is as follows:
+	//0 1 2
+	//3 4 5
+	//6 7 8
+	//the row and col variables are the location of the top left value in the squareslice
+	public SquareSlice(Tableau t, int n){ 
+		_t = t;
+		_row0 = (n / _t.subsize()) * _t.subsize();
+		_col0 = (n % _t.subsize()) * _t.subsize();
+	}
+	
+	//takes an integer parameter with a domain of [0,8], which follows the same format as the square format above
+	//returns the value at that location
+	final public int getValue(int i){
+		int r = _row0 + i / _t.subsize(); 
+		int c = _col0 + i % _t.subsize(); 
+		return _t.getValue(r, c); 
+	} 
+	
+	//returns the size of the sqaure slice
+	final public int size(){
+		return _t.size(); 
+	} 
+}

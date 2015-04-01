@@ -1,0 +1,4 @@
+public abstract class Slice { 
+	abstract public int size(); 
+	abstract public int getValue(int i); 
+} 

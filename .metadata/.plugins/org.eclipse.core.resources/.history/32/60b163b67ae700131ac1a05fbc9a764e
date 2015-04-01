@@ -1,0 +1,24 @@
+
+public class p004 {
+	public static void main (String [] args){
+		int product = 0;
+		int largest = 0;
+		for(int i = 10; i < 100; i++){
+			for(int j = i; j < 100; j++){
+				product = i*j;
+				if(isPalindrome(Integer.toString(product))){
+					largest = product;
+				}
+			}
+		}
+		System.out.println("Largest palindrome: " + largest);
+	}
+	
+	public static boolean isPalindrome (String input){
+		String temp = "";
+		for(int i = input.length(); i > 0; i--){
+			temp += input.substring(i - 1, i);
+		}
+		return temp.equals(input);
+	}
+}

@@ -1,0 +1,9 @@
+
+public class testing {
+	public static void main (String [] args){
+		//Sudoku s = new Sudoku();
+		//s.show();
+		String d = "d";
+		System.out.println(d.substring(0));
+	}
+}

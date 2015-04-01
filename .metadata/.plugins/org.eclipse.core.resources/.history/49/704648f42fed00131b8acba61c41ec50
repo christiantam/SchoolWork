@@ -1,0 +1,25 @@
+
+public class p014 {
+	public static void main (String [] args){
+		int longest = 1, temp;
+		for(int i = 1; i < 1000000; i++){
+			temp = Collatz(i);
+			if(temp > longest)
+				longest = temp;
+		}
+		System.out.println("Longest: " + longest);
+	}
+	
+	public static int Collatz (int input){
+		int num = 0;
+		while(input != 1){
+			//even
+			if(input % 2 == 0)
+				input /= 2;
+			else
+				input = input*3 + 1;
+			num++;
+		}
+		return num;
+	}
+}

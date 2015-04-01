@@ -1,0 +1,38 @@
+public class ColumnSlice extends Slice { 
+	private Tableau _t; 
+	private int _colno; 
+	
+	//constructor with a tableau parameter and an integer parameter
+	//initializes both private variables by making them equal to the parameters
+	public ColumnSlice(Tableau t, int colno){
+		_t = t;
+		_colno = colno;
+	}
+	
+	//checks if the slice has numbers [1,9] in it, the method also works for multiples of a single number in the slice
+	public static boolean checkSlice(Slice s) { 
+		for (int i = 1; i <= s.size(); i++) { 
+			// Check that value i is there. 
+			boolean found = false;
+			for (int j = 0; j < s.size() && !found; j++) {
+				if (s.getValue(j) == i)
+					found = true; 
+			}
+			// If not found, then the check fails.
+			if (!found)
+				return false; 
+		} 
+		// All were found so check succeeds. 
+		return true; 
+	}
+	
+	//returns the size of the column slice
+	final public int size(){
+		return _t.size();
+	}
+
+	//returns the value at position 'i' in the column slice
+	final public int getValue(int i){
+		return _t.getValue(i, _colno);
+	}
+}

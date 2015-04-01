@@ -1,0 +1,37 @@
+public class RowSlice extends Slice{
+	private Tableau _t; 
+	private int _rowno;
+	
+	//constructor with a tableau parameter and an integer parameter
+	//initializes both private variables by making them equal to the parameters
+	public RowSlice(Tableau t, int rowno){
+		_t = t;
+		_rowno = rowno;
+	}
+	
+	public static boolean checkSlice(Slice s) { 
+		for (int i = 1; i <= s.size(); i++) { 
+			// Check that value i is there. 
+			boolean found = false;
+			for (int j = 0; j < s.size() && !found; j++) {
+				if (s.getValue(j) == i)
+					found = true; 
+			}
+			// If not found, then the check fails.
+			if (!found)
+				return false; 
+		} 
+		// All were found so check succeeds. 
+		return true; 
+	}
+	
+	//returns the size of the row slice
+	final public int size(){
+		return _t.size();
+	}
+	
+	//returns the value at position 'i' in the row slice
+	final public int getValue(int i){
+		return _t.getValue(_rowno,i);
+	}
+}

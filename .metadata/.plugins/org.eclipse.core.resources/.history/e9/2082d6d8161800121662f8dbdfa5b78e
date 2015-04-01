@@ -1,0 +1,29 @@
+
+public class testing {
+	public static void main (String [] args){
+		Sudoku s = new Sudoku();
+		String [] lines = new String [9];
+		lines[0] = "586374912";
+		lines[1] = "137952864";
+		lines[2] = "249816573";
+		lines[3] = "872543196";
+		lines[4] = "693781245";
+		lines[5] = "415629738";
+		lines[6] = "954237681";
+		lines[7] = "721468359";
+		lines[8] = "368195427";
+		int [] list = new int [9];
+		list[0] = 5;
+		list[1] = 1;
+		list[2] = 2;
+		list[3] = 8;
+		list[4] = 3;
+		list[5] = 4;
+		list[6] = 6;
+		list[7] = 7;
+		list[8] = 9;
+		s.fancyFill(lines);
+		s.show();
+		System.out.println(s.isSolution());
+	}
+}

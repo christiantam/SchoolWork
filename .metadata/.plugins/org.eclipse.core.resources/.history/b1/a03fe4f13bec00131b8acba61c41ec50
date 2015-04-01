@@ -1,0 +1,27 @@
+import java.io.*;
+
+public class p008 {
+	public static void main (String [] args) throws IOException{
+		BufferedReader in = new BufferedReader(new FileReader("1000digits.txt"));
+		int largest = 0;
+		int current = 1;
+		
+		String digits = in.readLine();
+		String eightDigits = digits.substring(0,8);
+		
+		for(int i = 8; i < 1000; i++){
+			for(int j = 0; j < 8; j++){
+				current *= Integer.parseInt(eightDigits.substring(j, j + 1));
+			}
+			if(current > largest)
+				largest = current;
+			current = 1;
+			eightDigits = eightDigits.substring(1);
+			eightDigits += (digits.substring(i, i+1));
+		}
+		
+		System.out.println("Largest: " + largest);
+		
+	}
+	
+}

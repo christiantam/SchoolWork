@@ -1,0 +1,16 @@
+
+public class p004 {
+	public static void main (String [] args){
+		System.out.println(isPalindrome("009900"));
+		System.out.println(isPalindrome("0039900"));
+		System.out.println(isPalindrome("0093900"));
+	}
+	
+	public static boolean isPalindrome (String input){
+		String temp = "";
+		for(int i = input.length(); i > 0; i++){
+			temp.concat(input.substring(i - 2, i - 1));
+		}
+		return temp.equals(input);
+	}
+}

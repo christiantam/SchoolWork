@@ -1,0 +1,88 @@
+class Tableau {
+	private int _subsize;
+	private int _size;
+	private int[][] _tableau;
+	
+	//default constructor which makes a sudoku of size 9
+	private Tableau() {
+		_size    = 9;
+		_subsize = intsqrt(9);
+		_tableau = new int[9][9];
+	}
+	
+	//constructor for one variable which dictates the size of the tableau
+	private Tableau(int n) {
+		_size    = n;
+		_subsize = intsqrt(n);
+		_tableau = new int[n][n];
+	}
+	
+	// Create a Sudoku tableau from an array of rows.
+	public Tableau(String[] rows) { 
+		this(rows.length);   // Call the private emtpy-tableau constructor.
+		for (int i = 0; i < size(); i++)
+			fillRow(rows[i], 0, _tableau[i]);
+	}
+	
+	// Create a Sudoku tableau from a single string.
+	public Tableau(int n, String initial) {
+		this(n);  // Call the private empty-tableau constructor.
+		for (int rix = 0, ix = 0; rix < n; rix++) {
+			//Each iteration advances the starting position in the string.
+			ix = fillRow(initial, ix, _tableau[rix]);
+		}         
+	}
+	
+	//takes an integer parameter, and returns the square root (rounded down)
+	private static int intsqrt(int n){
+		int i = 0; 
+		while (i*i < n) 
+			i++;
+		return i; 
+	}
+	
+	// Fill a row from a string, starting at index ix.
+	// Return the position of the first unused index.
+	// If the string isn't long enough, the rest of the row is filled with zeros. 
+	// Non-digit characters are ignored.  This allows spacing.
+	private static int fillRow(String s, int ix, int[] row) {
+		int rix = 0;
+		for ( ; ix < s.length() && rix < row.length; ix++) {
+			char c = s.charAt(ix);
+			if (!Character.isDigit(c)) continue; 
+			row[rix++] = Character.digit(c, 10);
+		}
+		for ( ; rix < row.length; rix++)
+			row[rix] = 0;
+		return ix;
+	}
+	
+	//prints the tableau
+	//prints blank spaces for empty slots in the tableau
+	public void print() {
+		for (int i = 0; i < _size; i++) {
+			if (i > 0 && i % _subsize == 0) 
+				System.out.println();
+			for (int j = 0; j < _size; j++) {
+				if (j > 0 && j % _subsize == 0) System.out.print(" ");
+					System.out.print(_tableau[i][j]);
+			}
+		System.out.println();
+		}
+	}
+	
+	//returns the size variable
+	public int size(){
+		return _size;
+	}
+	
+	//returns the subsize variable
+	public int subsize(){
+		return _subsize;
+	}
+	
+	//returns the value at row r, column c
+	public int getValue(int r, int c){
+		return _tableau[r][c]; 
+	}
+}

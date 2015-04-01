@@ -1,0 +1,21 @@
+class ColumnSlice extends Slice { 
+	private Tableau _t; 
+	private int _colno; 
+	
+	//constructor with a tableau parameter and an integer parameter
+	//initializes both private variables by making them equal to the parameters
+	public ColumnSlice(Tableau t, int colno){
+		_t = t;
+		_colno = colno;
+	}
+	
+	//returns the size of the column slice
+	final public int size(){
+		return _t.size();
+	}
+
+	//returns the value at position 'i' in the column slice
+	final public int getValue(int i){
+		return _t.getValue(i, _colno);
+	}
+}

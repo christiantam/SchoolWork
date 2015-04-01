@@ -1,0 +1,33 @@
+
+public class Sudoku {
+	
+	//checks the sudoku by checking row 'i', column 'i', and square 'i', where i is [0,size of sudoku]
+	//if one check returns false, the method returns false
+	//if all of the checks return true, the method returns true
+	public static boolean checkSudoku(Tableau t) { 
+		Slice s;
+		for (int i = 0; i < t.size(); i++) { 
+		s = new RowSlice (t, i);      if (!checkSlice(s)) return false;
+		s = new ColumnSlice(t, i);  if (!checkSlice(s)) return false; 
+		s = new SquareSlice(t, i);   if (!checkSlice(s)) return false; 
+		} 
+		return true; 
+	}
+	
+	//checks if the slice has numbers [1,9] in it, the method also works for multiples of a single number in the slice
+	public static boolean checkSlice(Slice s) { 
+		for (int i = 1; i <= s.size(); i++) { 
+			// Check that value i is there. 
+			boolean found = false;
+			for (int j = 0; j < s.size() && !found; j++) {
+				if (s.getValue(j) == i)
+					found = true; 
+			}
+			// If not found, then the check fails.
+			if (!found)
+				return false; 
+		} 
+		// All were found so check succeeds. 
+		return true; 
+	}
+}

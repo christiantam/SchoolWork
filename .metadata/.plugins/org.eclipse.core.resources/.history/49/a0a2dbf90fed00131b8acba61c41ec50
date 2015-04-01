@@ -1,0 +1,22 @@
+ 
+import java.math.*;
+
+public class p010 {
+	public static void main (String [] args){
+		int sum = 2;
+		for(int i = 3; i < 2000000; i++){
+			if(isPrime(i))
+				sum += i;
+		}
+		
+		System.out.println("Sum: " + sum);
+	}
+	
+	public static boolean isPrime (int input){
+		for(int i = 2; i < Math.sqrt(input) + 1; i++){
+			if (input % i == 0)
+				return false;
+		}
+		return true;
+	}
+}

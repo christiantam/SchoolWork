@@ -1,0 +1,21 @@
+class RowSlice extends Slice{
+	private Tableau _t; 
+	private int _rowno;
+	
+	//constructor with a tableau parameter and an integer parameter
+	//initializes both private variables by making them equal to the parameters
+	public RowSlice(Tableau t, int rowno){
+		_t = t;
+		_rowno = rowno;
+	}
+	
+	//returns the size of the row slice
+	final public int size(){
+		return _t.size();
+	}
+	
+	//returns the value at position 'i' in the row slice
+	final public int getValue(int i){
+		return _t.getValue(_rowno,i);
+	}
+}

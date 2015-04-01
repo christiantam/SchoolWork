@@ -1,0 +1,28 @@
+ 
+import java.math.*;
+
+public class p010 {
+	public static void main (String [] args){
+		System.out.println("2: " + isPrime(2));
+		System.out.println("3: " + isPrime(3));
+		System.out.println("4: " + isPrime(4));
+		System.out.println("5: " + isPrime(5));
+		System.out.println("8: " + isPrime(8));
+		int sum = 2;
+		for(int i = 3; i < 2000000; i++){
+			if(isPrime(i))
+				sum += i;
+		}
+		
+		System.out.println("Sum: " + sum);
+	}
+	
+	public static boolean isPrime (int input){
+		int sqrt = (int)Math.sqrt(input) + 1;
+		for(int i = 2; i < sqrt; i++){
+			if (input % i == 0)
+				return false;
+		}
+		return true;
+	}
+}
