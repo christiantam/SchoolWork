@@ -1,0 +1,27 @@
+import java.io.*;
+
+public class CopyandPaste {
+	public static void main (String [] args){
+		System.out.println("got here");
+        String output = "";
+		
+		try
+        {
+            BufferedReader in = new BufferedReader(new FileReader(new File("copy.txt")));
+            System.out.println("File open successful!");
+            String temp = in.readLine();
+            
+            while(temp != null){
+            	System.out.println("temp:" + temp);
+	            output.concat(temp);	
+            	temp = in.readLine();            
+            }
+            in.close();
+        }
+        catch(IOException e)
+        {
+            System.out.println("File I/O error!");
+        }
+		System.out.println(output);
+	}
+}
